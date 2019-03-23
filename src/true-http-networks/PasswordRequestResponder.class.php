@@ -23,10 +23,8 @@ class PasswordRequestResponder{
             $ID = wp_insert_post( $networkCPT );
         }
         $generatedPassword = $this->returnFirstPassword();
-        //$this->storeGeneratedPassword($generatedPassword);
-        update_post_meta( $ID, "URL", $_POST['network-url']);
-        update_post_meta($ID, "password", $generatedPassword);
-        $poddata = get_post_meta($ID, 'password');
+        update_post_meta( $ID, "URL", $_POST['network-url']);      
+        update_post_meta($ID, "password", $generatedPassword['password']);
         return $generatedPassword;
     }
     
